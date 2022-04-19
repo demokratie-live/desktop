@@ -3,7 +3,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-module.exports = withBundleAnalyzer({
+module.exports = withBundleAnalyzer(() => ({
   eslint: {
     dirs: ['.'],
   },
@@ -17,4 +17,26 @@ module.exports = withBundleAnalyzer({
   images: {
     formats: ['image/avif', 'image/webp'],
   },
-});
+  compiler: {
+    styledComponents: true,
+  },
+  webpack: (config2) => {
+    return {
+      resolve: {
+        ...(config2.resolve || {}),
+        alias: {
+          ...(config2.resolve.alias || {}),
+          'react-native': require.resolve('react-native-web'),
+          'react-native-svg': require.resolve('react-native-svg-web'),
+          'styled-components/native': require.resolve('styled-components'),
+        },
+        extensions: [
+          ...(config2.resolve.extensions || []),
+          '.web.js',
+          '.web.ts',
+          '.web.tsx',
+        ],
+      },
+    };
+  },
+}));

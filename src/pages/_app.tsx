@@ -1,4 +1,5 @@
 import { ApolloProvider } from '@apollo/client';
+import { lightTheme, ThemeProvider } from '@democracy-deutschland/ui';
 import { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
@@ -15,7 +16,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
   <RecoilRoot>
     <Layout>
       <ApolloProvider client={client}>
-        <Component {...pageProps} />
+        <ThemeProvider theme={lightTheme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </ApolloProvider>
     </Layout>
   </RecoilRoot>

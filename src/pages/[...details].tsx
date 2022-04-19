@@ -1,3 +1,4 @@
+import { PieChart } from '@democracy-deutschland/ui';
 import { PaperClipIcon } from '@heroicons/react/outline';
 import dayjs from 'dayjs';
 import { sortBy, truncate } from 'lodash-es';
@@ -29,6 +30,13 @@ export default function DetailsPage({ data, resolvedUrl }: any) {
       }
     >
       <div>
+        <PieChart
+          data={[
+            { name: 'bla', value: 2, color: 'red' },
+            { name: 'bla', value: 2, color: 'red' },
+          ]}
+          size={200}
+        />
         {!data ? (
           <Loading />
         ) : (
