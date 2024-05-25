@@ -1,3 +1,6 @@
+# ⚠️ ARCHIVED
+This repostiry is now merged into the Monorepo [democracy-development](https://github.com/demokratie-live/democracy-development) into the directory [democracy/deskop](https://github.com/demokratie-live/democracy-development/tree/master/democracy/desktop)
+
 # DEMOCRACY Desktop Version
 
 <p align="center">
